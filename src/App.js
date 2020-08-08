@@ -1,11 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Navigation from "./components/Navigation";
 
 function App() {
-  return (
+  return <Navigation />;
+  /*
     <div className="App">
-      <header className="App-header">
+
+        <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -20,7 +22,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+        */
 }
 
 export default App;
