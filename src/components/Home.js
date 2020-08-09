@@ -36,6 +36,16 @@ const Home = () => {
           2021.
         </Typography>
         <br />
+        <Typography style={{ marginRight: 10, marginLeft: 10 }}>
+          Source code for this website{" "}
+          <a
+            href="https://github.com/benlambert43/PersonalWebsite"
+            target="_blank"
+          >
+            here
+          </a>
+        </Typography>
+        <br />
         <HomeDetails />
       </Typography>
     </div>
