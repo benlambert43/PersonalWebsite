@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -16,9 +16,12 @@ import HomeIcon from "@material-ui/icons/Home";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import WebOutlinedIcon from "@material-ui/icons/WebOutlined";
 import SentimentVerySatisfiedOutlinedIcon from "@material-ui/icons/SentimentVerySatisfiedOutlined";
-import PhotoLibraryOutlinedIcon from "@material-ui/icons/PhotoLibraryOutlined";
 import background from "../assets/background.JPG";
+import RoomIcon from "@material-ui/icons/Room";
+import Home from "./Home";
+
 import "./NavStyling.css";
+import NavButtons from "./NavButtons";
 
 const mainListItems = (
   <div>
@@ -34,12 +37,6 @@ const mainListItems = (
       <WebOutlinedIcon />
     </ListItem>
     <Divider />
-
-    <ListItem button>
-      <PhotoLibraryOutlinedIcon />
-    </ListItem>
-    <Divider />
-
     <ListItem button>
       <SentimentVerySatisfiedOutlinedIcon />
     </ListItem>
@@ -71,17 +68,23 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     height: `calc(100% - 55px)`,
   },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
 
   appBarSpacer: { marginTop: 55 },
+
   content: {
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
   },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
 
+  container: {
+    justifyContent: "center",
+    display: "flex",
     /* Responsive Full Background Image Using CSS
      * Tutorial URL: http://sixrevisions.com/css/responsive-background-image/
      */
@@ -106,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#464646",
     },
 
-    minHeight: `calc(100% - 61px)`,
+    minHeight: `calc(100% - 61px - 0.75vw - 1vw - 0.75v)`,
   },
 }));
 
@@ -137,14 +140,45 @@ export default function Navigation() {
         }}
         open={true}
       >
-        <List>{mainListItems}</List>
+        <div>{mainListItems}</div>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Typography align={"right"} style={{ color: "white", fontSize: 10 }}>
-            Dent d'Arclusaz, France
-          </Typography>
+        <Typography
+          align={"right"}
+          style={{
+            paddingTop: "0.75vw",
+            paddingBottom: "0.75vw",
+            color: "#A2B4B9",
+            fontSize: `calc(1vw - 5px)`,
+            marginRight: "0.5vw",
+          }}
+        >
+          Dent d'Arclusaz, France
+          <RoomIcon
+            style={{ marginLeft: "0.5vw", fontSize: `calc(1vw - 5px)` }}
+          />
+        </Typography>
+        <Container className={classes.container} maxWidth={false}>
+          <Paper
+            elevation={20}
+            style={{
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "column",
+
+              marginTop: "3vh",
+              marginBottom: "3vh",
+
+              minWidth: "75vw",
+              minHeight: "50vh",
+            }}
+          >
+            <Home />
+            <div style={{ marginTop: "5%", marginBottom: "2.5%" }}>
+              <NavButtons />
+            </div>
+          </Paper>
         </Container>
       </main>
     </div>
