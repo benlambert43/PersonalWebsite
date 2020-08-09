@@ -5,7 +5,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -16,33 +15,13 @@ import HomeIcon from "@material-ui/icons/Home";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import WebOutlinedIcon from "@material-ui/icons/WebOutlined";
 import SentimentVerySatisfiedOutlinedIcon from "@material-ui/icons/SentimentVerySatisfiedOutlined";
-import background from "../assets/background.JPG";
 import RoomIcon from "@material-ui/icons/Room";
 import Home from "./Home";
-
+import Information from "./Information";
+import Blog from "./Blog";
+import Etc from "./Etc";
 import "./NavStyling.css";
 import NavButtons from "./NavButtons";
-
-const mainListItems = (
-  <div>
-    <ListItem button>
-      <HomeIcon />
-    </ListItem>
-    <Divider />
-    <ListItem button>
-      <InfoOutlinedIcon />
-    </ListItem>
-    <Divider />
-    <ListItem button>
-      <WebOutlinedIcon />
-    </ListItem>
-    <Divider />
-    <ListItem button>
-      <SentimentVerySatisfiedOutlinedIcon />
-    </ListItem>
-    <Divider />
-  </div>
-);
 
 const drawerWidth = 55;
 
@@ -85,36 +64,27 @@ const useStyles = makeStyles((theme) => ({
   container: {
     justifyContent: "center",
     display: "flex",
-    /* Responsive Full Background Image Using CSS
-     * Tutorial URL: http://sixrevisions.com/css/responsive-background-image/
-     */
-    body: {
-      /* Location of the image */
-      backgroundImage: `${background}`,
-
-      /* Image is centered vertically and horizontally at all times */
-      backgroundPosition: " center center",
-
-      /* Image doesn't repeat */
-      backgroundRepeat: "no-repeat",
-
-      /* Makes the image fixed in the viewport so that it doesn't move when 
-     the content height is greater than the image height */
-      backgroundAttachment: "fixed",
-
-      /* This is what makes the background image rescale based on its container's size */
-      backgroundSize: "cover",
-
-      /* Pick a solid background color that will be displayed while the background image is loading */
-      backgroundColor: "#464646",
-    },
-
     minHeight: `calc(100% - 61px - 0.75vw - 1vw - 0.75v)`,
   },
 }));
 
 export default function Navigation() {
   const classes = useStyles();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const RenderPage = () => {
+    if (currentPage === 1) {
+      return <Home />;
+    } else if (currentPage === 2) {
+      return <Information />;
+    } else if (currentPage === 3) {
+      return <Blog />;
+    } else if (currentPage === 4) {
+      return <Etc />;
+    } else {
+      return <Home />;
+    }
+  };
 
   return (
     <div className={classes.root}>
@@ -127,8 +97,9 @@ export default function Navigation() {
             color="inherit"
             noWrap
             className={classes.title}
+            style={{ marginBottom: 5 }}
           >
-            Ben Lambert
+            benlambert.tech
           </Typography>
           <IconButton color="inherit"></IconButton>
         </Toolbar>
@@ -140,7 +111,46 @@ export default function Navigation() {
         }}
         open={true}
       >
-        <div>{mainListItems}</div>
+        <div>
+          <div>
+            <ListItem
+              button
+              onClick={() => {
+                setCurrentPage(1);
+              }}
+            >
+              <HomeIcon />
+            </ListItem>
+            <Divider />
+            <ListItem
+              button
+              onClick={() => {
+                setCurrentPage(2);
+              }}
+            >
+              <InfoOutlinedIcon />
+            </ListItem>
+            <Divider />
+            <ListItem
+              button
+              onClick={() => {
+                setCurrentPage(3);
+              }}
+            >
+              <WebOutlinedIcon />
+            </ListItem>
+            <Divider />
+            <ListItem
+              button
+              onClick={() => {
+                setCurrentPage(4);
+              }}
+            >
+              <SentimentVerySatisfiedOutlinedIcon />
+            </ListItem>
+            <Divider />
+          </div>
+        </div>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -169,14 +179,11 @@ export default function Navigation() {
 
               marginTop: "3vh",
               marginBottom: "3vh",
-
-              minWidth: "75vw",
-              minHeight: "50vh",
             }}
           >
-            <Home />
-            <div style={{ marginTop: "5%", marginBottom: "2.5%" }}>
-              <NavButtons />
+            <RenderPage />
+            <div style={{ marginTop: "5%" }}>
+              <NavButtons buttonHandler={setCurrentPage} />
             </div>
           </Paper>
         </Container>

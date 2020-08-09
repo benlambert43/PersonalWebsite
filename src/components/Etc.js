@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
-const Blog = () => {
+const Etc = () => {
   return (
     <div align={"center"}>
       <br />
@@ -11,7 +11,7 @@ const Blog = () => {
         align={"center"}
         style={{ marginRight: "5vw", marginLeft: "5vw" }}
       >
-        This page (Blog) is under construction.{" "}
+        This page (Etc.) is under construction.{" "}
         <Typography variant="body1">
           <br />
           <br />
@@ -30,4 +30,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Etc;

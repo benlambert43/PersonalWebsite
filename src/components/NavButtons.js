@@ -14,16 +14,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavButtons() {
+export default function NavButtons(props) {
   const classes = useStyles();
+
+  const pageSwitch = (page) => {
+    props.buttonHandler(page);
+  };
 
   return (
     <div className={classes.root}>
       <ButtonGroup size="small" aria-label="small outlined button group">
-        <Button>Home</Button>
-        <Button>Info</Button>
-        <Button>Blog</Button>
-        <Button>Etc.</Button>
+        <Button onClick={() => pageSwitch(1)}>Home</Button>
+        <Button onClick={() => pageSwitch(2)}>Info</Button>
+        <Button onClick={() => pageSwitch(3)}>Blog</Button>
+        <Button onClick={() => pageSwitch(4)}>Etc.</Button>
       </ButtonGroup>
     </div>
   );
