@@ -1,7 +1,7 @@
 {
   "name": "benlambertwebsite",
   "version": "0.1.0",
-  "homepage": "http://benlambert43.github.io/",
+  "homepage": "http://benlambert43.github.io/home",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
