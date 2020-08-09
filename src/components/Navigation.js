@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 55,
     position: "relative",
     width: drawerWidth,
-    height: "auto",
+    height: "50%",
   },
   paper: {
     padding: theme.spacing(2),
@@ -171,7 +171,7 @@ export default function Navigation() {
         </Typography>
         <Container className={classes.container} maxWidth={false}>
           <Paper
-            elevation={10}
+            elevation={20}
             style={{
               justifyContent: "center",
               display: "flex",
