@@ -41,6 +41,7 @@ const Home = () => {
           <a
             href="https://github.com/benlambert43/PersonalWebsite"
             target="_blank"
+            rel="noopener noreferrer"
           >
             here
           </a>

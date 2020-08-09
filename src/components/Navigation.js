@@ -22,6 +22,7 @@ import Blog from "./Blog";
 import Etc from "./Etc";
 import "./NavStyling.css";
 import NavButtons from "./NavButtons";
+import { List } from "@material-ui/core";
 
 const drawerWidth = 55;
 
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 55,
     position: "relative",
     width: drawerWidth,
-    height: `calc(100% - 55px)`,
+    height: "auto",
   },
   paper: {
     padding: theme.spacing(2),
@@ -111,7 +112,7 @@ export default function Navigation() {
         }}
         open={true}
       >
-        <div>
+        <List>
           <div>
             <ListItem
               button
@@ -148,9 +149,8 @@ export default function Navigation() {
             >
               <SentimentVerySatisfiedOutlinedIcon />
             </ListItem>
-            <Divider />
           </div>
-        </div>
+        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -171,7 +171,7 @@ export default function Navigation() {
         </Typography>
         <Container className={classes.container} maxWidth={false}>
           <Paper
-            elevation={20}
+            elevation={10}
             style={{
               justifyContent: "center",
               display: "flex",
