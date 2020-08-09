@@ -1,6 +1,4 @@
-/* Responsive Full Background Image Using CSS
- * Tutorial URL: http://sixrevisions.com/css/responsive-background-image/
-*/
+/* Responsive Full Background Image Using CSS */
 body {
   /* Location of the image */
   background-image: url(../assets/background.JPG);
@@ -20,10 +18,6 @@ body {
 
   /* Pick a solid background color that will be displayed while the background image is loading */
   background-color: #464646;
-
-  /* SHORTHAND CSS NOTATION
-   * background: url(background-photo.jpg) center center cover no-repeat fixed;
-   */
 }
 
 /* For mobile devices */
