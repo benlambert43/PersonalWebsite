@@ -105,7 +105,7 @@ export default function Navigation() {
           <IconButton color="inherit"></IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
+      {/* <Drawer
         variant="permanent"
         classes={{
           paper: clsx(classes.drawerPaper),
@@ -151,7 +151,7 @@ export default function Navigation() {
             </ListItem>
           </div>
         </List>
-      </Drawer>
+      </Drawer> */}
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Typography
