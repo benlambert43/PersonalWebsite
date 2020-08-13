@@ -1,3 +1,3 @@
 ## benlambert.tech source code
 
-Source code for my personal website. Link here: https://benlambert.tech/ but is hosted for free at https://benlambert43.github.io/
+Source code for my personal website. Link here: https://benlambert43.github.io/home/ but also redirects from www.benlambert.tech
